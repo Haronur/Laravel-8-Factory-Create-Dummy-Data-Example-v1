@@ -59,3 +59,32 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## -- Run Command to Create Some Files --
+
+- Run below command to create all files below
+
+```
+php artisan make:model Category
+php artisan make:model Manufacturer
+php artisan make:model Product
+```
+#### -- Maintain This Below Serial To Avoid Error At Migrating Time To Create database--
+- primary key table is created first than foreign key table
+```
+php artisan make:migration create_categories_table --create=categories
+php artisan make:migration create_manufacturers_table --create=manufacturers
+php artisan make:migration create_products_table --create=products
+```
+
+- To avoid this error: `SQLSTATE[HY000]: General error: 1005 Can't create table `laravel-8-factory-create-dummy-data-example-v1`.`products` (errno: 150 "Foreign key constraint is incorrectly formed") (
+SQL: alter table `products` add constraint `products_manufacturer_id_foreign` foreign key (`manufacturer_id`) references `manufacturers` (`id`))`
+
+```
+php artisan make:factory CategoryFactory --model=Category
+php artisan make:factory ManufacturerFactory --model=Manufacturer
+php artisan make:factory ProductFactory --model=Product
+
+php artisan make:seeder CategorySeeder
+php artisan make:seeder ManufacturerSeeder
+php artisan make:seeder ProductSeeder
+``` 
