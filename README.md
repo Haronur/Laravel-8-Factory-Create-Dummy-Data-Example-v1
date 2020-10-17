@@ -88,3 +88,11 @@ php artisan make:seeder CategorySeeder
 php artisan make:seeder ManufacturerSeeder
 php artisan make:seeder ProductSeeder
 ``` 
+## -- Generate dummy data in Laravel 8 using Model Factory --
+#### Customize Some files for Generate dummy data in Laravel 8 using Model Factory
+#### Finally run those below command:
+```
+php artisan migrate:refresh
+php artisan db:seed
+```
+- And Check your Database table in my case at `phpMyAdmin` named  `laravel-8-factory-create-dummy-data-example-v1`(it has some seeded data for your testing) 
